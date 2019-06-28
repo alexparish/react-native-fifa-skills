@@ -8,7 +8,6 @@
 
 import React, {Component} from 'react';
 import { Alert, Platform, StyleSheet, Text, TextInput, View, Button, Image} from 'react-native';
-import AwesomeButton from 'react-native-really-awesome-button';
 import * as Progress from 'react-native-progress';
 
 const instructions = Platform.select({
@@ -79,7 +78,6 @@ export default class App extends Component<Props> {
     return (
       <View style={{ flex: 1, alignItems: "center", marginTop: 100 }}>
         <Text style={{ fontSize: 40 }}>FIFA Player Ratings</Text>
-
         <Text>Enter player name:</Text>
         <TextInput
         style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, textAlign: 'center'}}
@@ -89,9 +87,7 @@ export default class App extends Component<Props> {
           if (text) {
             const player = await fetchPlayer(this.state.nameInput);
             console.log(player);
-            this.setState({
-              player
-            });
+            this.setState({player});
           } else {
             this.setState({
               player: null
@@ -103,9 +99,6 @@ export default class App extends Component<Props> {
         {this.state.player &&
           <PlayerCard player={this.state.player} />
         }
-        {/* <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
-        <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} /> */}
-
       </View>
     );
   }
